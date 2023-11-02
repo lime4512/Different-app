@@ -133,7 +133,7 @@ const CalcBtn = props => {
 					</button>
 				</li>
 				<li>
-					<button className='btn-calc turquoise' onClick={resultHandler}>
+					<button className='btn-calc turquoise btn-w' onClick={resultHandler}>
 						=
 					</button>
 				</li>
