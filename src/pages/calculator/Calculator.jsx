@@ -1,11 +1,20 @@
+import { useState } from 'react'
+import '../../style/Calculator.css'
+import CalcBtn from './CalcBtn'
+
 const Calculator = () => {
+	const [num, setNum] = useState('')
+
+	const saveNumberHandler = e => {
+		setNum(e)
+	}
+
 	return (
 		<div className='main-calculator'>
-			<h1>Калькулятор</h1>
-			<input></input>
-			<input></input>
-			<input></input>
-			<button></button>
+			<div className='calc-content'>
+				<input type='text' className='calc-inp' defaultValue={num} />
+				<CalcBtn onSaveNumber={saveNumberHandler} />
+			</div>
 		</div>
 	)
 }

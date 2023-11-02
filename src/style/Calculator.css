@@ -1,0 +1,17 @@
+.calc-content {
+	max-width: 350px;
+	margin: auto;
+	background-color: #3b4455;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.calc-inp {
+	padding: 15px;
+	width: 100%;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-size: 30px;
+	color: white;
+}
