@@ -1,0 +1,29 @@
+.question-container {
+	width: 800px;
+	height: 300px;
+	display: flex;
+	align-items: center;
+}
+
+.question-content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.question-block-title {
+	width: 70%;
+}
+
+.question-subTitle {
+	margin-bottom: 0px;
+	color: #74ddd5;
+}
+
+.question-block-btn {
+	display: flex;
+	align-items: center;
+}
+
+.question-btn {
+	display: block;
+}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '../../style/Questions.css'
 
 const Questions = props => {
 	const [lenQuest, setLenQuest] = useState(1)
@@ -17,20 +18,41 @@ const Questions = props => {
 		} else {
 		}
 	}
+
+	const handlerBack = () => {
+		props.back(false)
+	}
 	return (
 		<div className='question-container'>
 			{isOpen ? (
-				<div>
-					<h1>{props.data.results[numQuest].question}</h1>
-					<button onClick={nextQuestHandler} value={'True'}>
-						True
-					</button>
-					<button onClick={nextQuestHandler} value={'False'}>
-						False
-					</button>
-					<span>
-						Вопрос {lenQuest} из {props.data.results.length}
-					</span>
+				<div className='question-content'>
+					<div className='question-block-title'>
+						<p className='question-subTitle'>
+							Вопрос {lenQuest} из {props.data.results.length}
+						</p>
+						<h1>
+							{props.data.results[numQuest].question
+								.replace(/&#039;/g, "'")
+								.replace(/&quot;/g, '"')}
+						</h1>
+					</div>
+					<div className='question-block-btn'>
+						<button
+							onClick={nextQuestHandler}
+							value={'True'}
+							className='question-btn'
+						>
+							True
+						</button>
+
+						<button
+							onClick={nextQuestHandler}
+							value={'False'}
+							className='question-btn'
+						>
+							False
+						</button>
+					</div>
 				</div>
 			) : (
 				<div>
@@ -38,6 +60,7 @@ const Questions = props => {
 					<p>
 						Правильных ответов: {numCorrect} из {props.data.results.length}
 					</p>
+					<button onClick={handlerBack}>Назад</button>
 				</div>
 			)}
 		</div>
