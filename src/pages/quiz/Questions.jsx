@@ -6,6 +6,8 @@ const Questions = props => {
 	const [numQuest, setNumQuest] = useState(0)
 	const [isOpen, setIsOpen] = useState(true)
 	const [numCorrect, setNumCorrect] = useState(0)
+
+	const [colorState, setColorState] = useState(false)
 	const nextQuestHandler = event => {
 		setLenQuest(lenQuest + 1)
 		setNumQuest(numQuest + 1)
@@ -15,7 +17,9 @@ const Questions = props => {
 
 		if (props.data.results[numQuest].correct_answer === event.target.value) {
 			setNumCorrect(numCorrect + 1)
-		} else {
+		}
+		if (numCorrect >= 5) {
+			setColorState(true)
 		}
 	}
 
@@ -55,12 +59,21 @@ const Questions = props => {
 					</div>
 				</div>
 			) : (
-				<div>
-					<h1>Вопросы закончились</h1>
-					<p>
-						Правильных ответов: {numCorrect} из {props.data.results.length}
-					</p>
-					<button onClick={handlerBack}>Назад</button>
+				<div className='question-content-answer'>
+					<div className='question-answer'>
+						<h1>Вопросы закончились</h1>
+						<p
+							className='answer-text'
+							style={{ color: colorState ? 'green' : 'red' }}
+						>
+							Правильных ответов: {numCorrect} из {props.data.results.length}
+						</p>
+						<div className='answer-back-btn'>
+							<button onClick={handlerBack} className='question-btn'>
+								Назад
+							</button>
+						</div>
+					</div>
 				</div>
 			)}
 		</div>
